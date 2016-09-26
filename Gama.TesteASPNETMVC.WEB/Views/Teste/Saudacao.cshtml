@@ -1,0 +1,14 @@
+﻿<!--Chama a pasta models-->
+@using Gama.TesteASPNETMVC.WEB.Models
+<!--Chama o modelo pessoa-->
+@model Pessoa
+@{
+    ViewBag.Title = "Saudacao";
+}
+
+<h2>Saudacao</h2>
+<p>Olá, seja bem vindo @Model.Nome</p> 
+<!--Chama as labels do objeto e o editor do formato do objeto-->
+@Html.LabelFor(p=>p.idade)@Html.EditorFor(p=>p.idade)
+@Html.LabelFor(p=>p.Endereco)@Html.EditorFor(p => p.Endereco)
+@Html.LabelFor(p => p.Email)@Html.EditorFor(p => p.Email)

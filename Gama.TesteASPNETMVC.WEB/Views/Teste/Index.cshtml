@@ -1,0 +1,42 @@
+﻿<!--Referencia o modelo a ser recebido -->
+@model Gama.TesteASPNETMVC.WEB.Models.Pessoa
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<br/>
+<br />
+<!--Referencia o início do form na view Index, Controller Teste e com method post-->
+@using (Html.BeginForm("Index","Teste",FormMethod.Post)) { 
+<p>Digite seu nome:</p>
+    <!--ValidationSummary: Exibe apenas os erros identificados com false, com true apresenta qualquer erro-->
+    @Html.ValidationSummary(false)
+    <!--Cria Token de sessão-->
+    @Html.AntiForgeryToken()
+
+    <!--Cria a label do objeto-->
+    @Html.LabelFor(p => p.Nome)
+    <!--Cria o campo texto já no formato do objeto, new referencia o id e/ou a class do css-->
+    @Html.EditorFor(p=>p.Nome, new { id = "txtNome", @class = "minhaClasseCss" })
+    <!--Exibe se houver erros a mensagem no HTML-->
+    @Html.ValidationMessageFor(p=> p.Nome)
+    <!--Cria a label do objeto-->
+    @Html.LabelFor(p => p.idade)
+    <!--Cria o campo texto já no formato do objeto, new referencia o id e/ou a class do css-->
+    @Html.EditorFor(p => p.idade, new { id = "txtidade", @class = "minhaClasseCss" })
+    <!--Cria a label do objeto-->
+    @Html.LabelFor(p => p.Endereco)
+    <!--Cria o campo texto já no formato do objeto, new referencia o id e/ou a class do css-->
+    @Html.EditorFor(p => p.Endereco, new { id = "txtEndereco", @class = "minhaClasseCss" })
+    <!--Exibe se houver erros a mensagem no HTML-->
+    @Html.ValidationMessageFor(p => p.Endereco)
+    <!--Cria a label do objeto-->
+    @Html.LabelFor(p => p.Email)
+    <!--Cria o campo texto já no formato do objeto, new referencia o id e/ou a class do css-->
+    @Html.EditorFor(p => p.Email, new { id = "txtEmail", @class = "minhaClasseCss" })
+    <!--Exibe se houver erros a mensagem no HTML-->
+    @Html.ValidationMessageFor(p => p.Email)
+
+<input type="submit" value="Enviar" />
+}
